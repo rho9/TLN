@@ -1,27 +1,23 @@
 # Conceptual similarity with WordNet
-
-### INPUT
-Usare WordSim353 (tsv o csv): 2 termini con valore numerico per similarita [0,10]
-
-### OUTPUT
-Punteggio numerico di similarita che indica la vicinanza semantica dei termini in input
-
-### SCALA PUNTEGGI
-Compreso nell'intervallo [0,1]: 0 completamente dissimile; 1 identita
-
-### SVOLGIMENTO
-#### Trovare la vicinanza semantica con 3 diverse misure:
+The aim of this project is to find the conceptual similarity of a list of words using 3 different misures:
 - Wu & Palmer
 - Shortest Path
 - Leakcock & Chodorow
-#### Per ciascuna misura di similarita calcolare:
-- Gli indici di correlazioine di Spearman
-- Gli indici di correlazioine di Pearson confrontando il risultato ottenuto con quello presente all'interno del file
 
-### NOTE
-- L' input è dato come coppia di termini, mentre nelle formule vengono richiesti i sensi. Per disambiguare si prendano i sensi con la massima similarita
-- Sfruttare la struttura ad albero di WordNet per calcolare la vicinanza semantica
-- Documentazione WordNet: https://wordnet.princeton.edu/documentation
+For each measure we compute:
+- Spearman's rank correlation coefficient
+- Pearson correlation coefficient
 
-### Esecuzione
-'python3 conc_sim_WN.py WordSim353.tab'
+We then compare the results with the values in the file WordSim353.
+
+## Input
+Use WordSim353 (tsv or csv). Each line is formed by 2 terms and their similarity given by humans [0,10].
+
+## Output
+Numerical similarity score indicating the semantic proximity of the input terms.
+
+## Score
+In the range [0,1]: 0 completely dissimilar; 1 identity
+
+## How to
+Execute: 'python3 conc_sim_WN.py WordSim353.tab'
